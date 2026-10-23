@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Our Portfolio')</title>
+
+    <title>@yield('title', 'DevTeam Portfolio')</title>
 
     <!-- Bootstrap 5 CSS -->
     <link
@@ -19,11 +20,17 @@
 
     <!-- Custom CSS -->
     <style>
+        /* General Layout */
         html {
+            min-height: 100%;
             scroll-behavior: smooth;
         }
 
         body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
             background-color: #f8f9fa;
             color: #212529;
             font-family: Arial, sans-serif;
@@ -133,10 +140,50 @@
 
         /* Footer */
         footer {
+            flex-shrink: 0;
             border-top: 3px solid #0d6efd;
         }
 
-        /* Mobile Responsive Design */
+        /* About Me Dropdown */
+        .navbar .dropdown-menu {
+            background-color: #ffffff;
+            border-radius: 10px;
+            min-width: 220px;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .navbar .dropdown-item {
+            color: #212529;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.2s ease,
+                        color 0.2s ease;
+        }
+
+        .navbar .dropdown-item:hover {
+            background-color: #e7f1ff;
+            color: #0d6efd;
+        }
+
+        .navbar .dropdown-item.active {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+
+        /* Consistent Team Profile Images */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tablet and Mobile Navigation */
         @media (max-width: 991.98px) {
             .navbar .navbar-nav {
                 gap: 4px;
@@ -146,8 +193,28 @@
             .navbar .nav-link {
                 padding: 12px 14px !important;
             }
+
+            .navbar .dropdown-menu {
+                margin-top: 4px;
+                background-color: #1f2937;
+            }
+
+            .navbar .dropdown-item {
+                color: #e5e7eb;
+            }
+
+            .navbar .dropdown-item:hover {
+                background-color: #374151;
+                color: #ffffff;
+            }
+
+            .navbar .dropdown-item.active {
+                background-color: #0d6efd;
+                color: #ffffff;
+            }
         }
 
+        /* Small Mobile Screens */
         @media (max-width: 576px) {
             .hero-section {
                 padding-top: 2rem !important;
@@ -197,8 +264,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                <i class="bi bi-code-slash text-primary me-2"></i>Our Team Portfolio
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <i class="bi bi-code-slash me-2"></i>DevTeam
+                <span class="text-primary">Portfolio</span>
             </a>
 
             <!-- Mobile Menu Button -->
@@ -216,7 +286,7 @@
 
             <!-- Navigation Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <!-- Home -->
                     <li class="nav-item">
@@ -230,27 +300,54 @@
                         </a>
                     </li>
 
-                    <!-- About Us -->
-                    <li class="nav-item">
+                    <!-- About Me Dropdown -->
+                    <li class="nav-item dropdown">
                         <a
-                            class="nav-link {{ request()->is('about') ? 'active' : '' }}"
-                            href="{{ url('/about') }}"
-                            @if(request()->is('about')) aria-current="page" @endif
+                            class="nav-link dropdown-toggle {{ request()->is('about-sarah') || request()->is('about-nafisah') ? 'active' : '' }}"
+                            href="#"
+                            id="aboutDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
                         >
                             <i class="bi bi-people me-1"></i>
-                            About Us
+                            About Me
                         </a>
+
+                        <ul
+                            class="dropdown-menu dropdown-menu-end shadow border-0"
+                            aria-labelledby="aboutDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item py-2 {{ request()->is('about-sarah') ? 'active' : '' }}"
+                                    href="{{ url('/about-sarah') }}"
+                                >
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    About Me — Sarah
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="dropdown-item py-2 {{ request()->is('about-nafisah') ? 'active' : '' }}"
+                                    href="{{ url('/about-nafisah') }}"
+                                >
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    About Me — Nafisah
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
-                    <!-- Contact Us -->
+                    <!-- Contact -->
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
                             href="{{ url('/contact') }}"
-                            @if(request()->is('contact')) aria-current="page" @endif
                         >
                             <i class="bi bi-envelope me-1"></i>
-                            Contact Us
+                            Contact
                         </a>
                     </li>
 
@@ -260,15 +357,20 @@
     </nav>
 
     <!-- Page Content -->
-    <main>
+    <main class="flex-grow-1">
         @yield('content')
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4 border-top mt-auto">
+    <footer class="bg-dark text-white py-4 mt-auto">
         <div class="container text-center">
-            <p class="mb-1">&copy; {{ date('Y') }} Our Team Portfolio. All rights reserved.</p>
-            <small class="text-muted">Built with Laravel & Bootstrap 5</small>
+            <p class="mb-1">
+                &copy; {{ date('Y') }} Our Team Portfolio. All rights reserved.
+            </p>
+
+            <small class="text-muted">
+                Built with Laravel &amp; Bootstrap 5
+            </small>
         </div>
     </footer>
 
