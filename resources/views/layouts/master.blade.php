@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Developer Portfolio')</title>
+    <title>@yield('title', 'Our Portfolio')</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                <i class="bi bi-code-slash text-primary me-2"></i>DevTeam Portfolio
+                <i class="bi bi-code-slash text-primary me-2"></i>Our Team Portfolio
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 border-top mt-auto">
         <div class="container text-center">
-            <p class="mb-1">&copy; {{ date('Y') }} DevTeam Portfolio. All rights reserved.</p>
+            <p class="mb-1">&copy; {{ date('Y') }} Our Team Portfolio. All rights reserved.</p>
             <small class="text-muted">Built with Laravel & Bootstrap 5</small>
         </div>
     </footer>
