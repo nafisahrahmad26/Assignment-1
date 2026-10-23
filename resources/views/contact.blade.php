@@ -39,33 +39,5 @@
             </div>
         </div>
 
-        <!-- Side Details -->
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm p-4 h-100 bg-primary text-white">
-                <h4 class="fw-bold mb-4">Contact Information</h4>
-                <div class="d-flex align-items-center mb-3">
-                    <i class="bi bi-geo-alt-fill fs-4 me-3"></i>
-                    <div>
-                        <h6 class="mb-0 fw-bold">Location</h6>
-                        <small class="opacity-75">University Campus, Malaysia</small>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <i class="bi bi-envelope-fill fs-4 me-3"></i>
-                    <div>
-                        <h6 class="mb-0 fw-bold">Email</h6>
-                        <small class="opacity-75">student@university.edu.my</small>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-4">
-                    <i class="bi bi-clock-fill fs-4 me-3"></i>
-                    <div>
-                        <h6 class="mb-0 fw-bold">Working Hours</h6>
-                        <small class="opacity-75">Mon - Fri: 9:00 AM - 5:00 PM</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 @endsection
