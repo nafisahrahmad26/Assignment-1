@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Contact Us - DevTeam Portfolio')
+@section('title', 'Contact Us - Our Team Portfolio')
 
 @section('content')
 <div class="container py-5">
