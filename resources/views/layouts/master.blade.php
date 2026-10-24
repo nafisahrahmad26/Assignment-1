@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title', 'DevTeam Portfolio')</title>
+    <title>@yield('title', 'Our Team Portfolio')</title>
 
     <!-- Bootstrap 5 CSS -->
     <link
@@ -267,7 +267,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <i class="bi bi-code-slash me-2"></i>DevTeam
+                <i class="bi bi-code-slash me-2"></i>Our Team
                 <span class="text-primary">Portfolio</span>
             </a>
 

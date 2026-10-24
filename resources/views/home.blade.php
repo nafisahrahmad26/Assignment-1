@@ -1,7 +1,7 @@
 
 @extends('layouts.master')
 
-@section('title', 'Home - DevTeam Portfolio')
+@section('title', 'Home - Our Team Portfolio')
 
 @section('content')
 
@@ -9,10 +9,6 @@
 <section class="hero-section text-white py-5 shadow-sm">
     <div class="container text-center py-5">
 
-        <span class="badge rounded-pill bg-light text-primary px-3 py-2 mb-3">
-            <i class="bi bi-code-slash me-1"></i>
-            Our Team Portfolio
-        </span>
 
         <h1 class="display-3 fw-bold mb-3">
             Welcome to Our Portfolio
